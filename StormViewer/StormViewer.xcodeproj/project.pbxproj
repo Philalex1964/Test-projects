@@ -23,6 +23,7 @@
 		2CBC50AD2795A97200D61C7C /* nssl0033.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CBC50A32795A97200D61C7C /* nssl0033.jpg */; };
 		2CBC50AE2795A97200D61C7C /* nssl0034.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CBC50A42795A97200D61C7C /* nssl0034.jpg */; };
 		2CBC50B02795A9E800D61C7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC50AF2795A9E800D61C7C /* ViewController.swift */; };
+		2CBC50B22795F16900D61C7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC50B12795F16900D61C7C /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		2CBC50A32795A97200D61C7C /* nssl0033.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0033.jpg; sourceTree = "<group>"; };
 		2CBC50A42795A97200D61C7C /* nssl0034.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0034.jpg; sourceTree = "<group>"; };
 		2CBC50AF2795A9E800D61C7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2CBC50B12795F16900D61C7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				2CBC50862795A8DC00D61C7C /* AppDelegate.swift */,
 				2CBC50AF2795A9E800D61C7C /* ViewController.swift */,
+				2CBC50B12795F16900D61C7C /* DetailViewController.swift */,
 				2CBC50882795A8DC00D61C7C /* SceneDelegate.swift */,
 				2CBC508C2795A8DC00D61C7C /* Main.storyboard */,
 				2CBC508F2795A8DD00D61C7C /* Assets.xcassets */,
@@ -189,6 +192,7 @@
 				2CBC50B02795A9E800D61C7C /* ViewController.swift in Sources */,
 				2CBC50872795A8DC00D61C7C /* AppDelegate.swift in Sources */,
 				2CBC50892795A8DC00D61C7C /* SceneDelegate.swift in Sources */,
+				2CBC50B22795F16900D61C7C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
