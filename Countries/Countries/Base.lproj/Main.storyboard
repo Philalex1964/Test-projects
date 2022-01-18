@@ -14,29 +14,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" textLabel="web-7a-XQw" detailTextLabel="FUr-0C-gGR" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="LK6-ZU-YJa">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" rowHeight="128" id="LK6-ZU-YJa" customClass="CountryTableViewCell" customModule="Countries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LK6-ZU-YJa" id="l7n-Xa-7KD">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Germany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="web-7a-XQw">
-                                            <rect key="frame" x="20" y="14" width="51" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-1D-6cP">
+                                            <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FUr-0C-gGR">
-                                            <rect key="frame" x="20" y="30.5" width="40.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SId-qK-yvf">
+                                            <rect key="frame" x="234" y="0.0" width="180" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="120" id="HWd-lg-bHu"/>
+                                                <constraint firstAttribute="width" constant="180" id="jrv-f8-bA0"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcq-O1-NdJ">
+                                            <rect key="frame" x="20" y="52" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lcq-O1-NdJ" firstAttribute="top" secondItem="kMp-1D-6cP" secondAttribute="bottom" constant="20" id="3fU-DE-xlN"/>
+                                        <constraint firstItem="kMp-1D-6cP" firstAttribute="top" secondItem="l7n-Xa-7KD" secondAttribute="topMargin" id="BXS-g0-4uL"/>
+                                        <constraint firstItem="kMp-1D-6cP" firstAttribute="leading" secondItem="l7n-Xa-7KD" secondAttribute="leadingMargin" id="SA9-LK-Q8B"/>
+                                        <constraint firstItem="lcq-O1-NdJ" firstAttribute="leading" secondItem="l7n-Xa-7KD" secondAttribute="leadingMargin" id="XSa-9s-sss"/>
+                                        <constraint firstItem="SId-qK-yvf" firstAttribute="top" secondItem="l7n-Xa-7KD" secondAttribute="top" id="dZx-7w-oq7"/>
+                                        <constraint firstAttribute="trailing" secondItem="SId-qK-yvf" secondAttribute="trailing" id="eD7-ky-fDR"/>
+                                        <constraint firstAttribute="bottom" secondItem="SId-qK-yvf" secondAttribute="bottom" id="mWi-sU-jyV"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="countryImageView" destination="SId-qK-yvf" id="YZR-Jm-Seo"/>
+                                    <outlet property="countryTextLabel" destination="lcq-O1-NdJ" id="oNS-bl-b6F"/>
+                                    <outlet property="countryTitleLabel" destination="kMp-1D-6cP" id="nKx-Qr-waV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
