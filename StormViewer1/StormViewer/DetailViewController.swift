@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Picture \(pictures.firstIndex(where: {$0 == selectedImage})! + 1) of \(pictures.count)"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.largeTitleDisplayMode = .never
 
         if let imageToLoad = selectedImage {
@@ -30,5 +31,18 @@ class DetailViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.hidesBarsOnTap = false
+    }
+    
+    @objc func shareTapped() {
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.8),
+        let imageName = selectedImage
+        else {
+            print("No image found")
+            return
+        }
+        
+        let vc = UIActivityViewController(activityItems: [image, imageName], applicationActivities:[])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
