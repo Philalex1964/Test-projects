@@ -27,13 +27,13 @@ class ViewController: UITableViewController {
             }
         }
 
-        print(pictures)
+        pictures.sort()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+
         return pictures.count
     }
 
@@ -48,6 +48,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
+            vc.pictures = self.pictures
             
             navigationController?.pushViewController(vc,  animated: true)
         }
