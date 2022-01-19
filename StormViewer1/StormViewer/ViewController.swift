@@ -16,6 +16,7 @@ class ViewController: UITableViewController {
         
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
         
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
@@ -52,5 +53,12 @@ class ViewController: UITableViewController {
             
             navigationController?.pushViewController(vc,  animated: true)
         }
+    }
+    
+    @objc func share() {
+        let invite = "Please, check my application Storm Viewer!"
+        let vc = UIActivityViewController(activityItems: [invite], applicationActivities:[])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
