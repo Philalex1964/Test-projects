@@ -42,7 +42,6 @@ class ViewController: UITableViewController {
         return usedWords.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
 
@@ -51,7 +50,7 @@ class ViewController: UITableViewController {
         return cell
     }
     
-//    MARK: - @objc methods
+    // MARK: - @objc methods
     @objc func promptForAnswer() {
         let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
@@ -68,11 +67,10 @@ class ViewController: UITableViewController {
     @objc func startNewGame() {
         startGame()
     }
-        
+            
+    // MARK: - Actions
     
-//MARK: - Actions
-    
-    func submit(_ answer: String) {        
+    func submit(_ answer: String) {
         if isPossible(word: answer) {
             if isOriginal(word: answer) {
                 if isReal(word: answer) {
@@ -125,5 +123,4 @@ class ViewController: UITableViewController {
         ac.addAction(UIAlertAction(title: "Ok", style: .default))
         present(ac, animated: true)
     }
-    
 }
