@@ -72,18 +72,17 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: "Filter", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
-        let searchPetitions = UIAlertAction(title: "Search", style: .default) { [weak ac] action in
+        let searchPetitions = UIAlertAction(title: "Search", style: .default) { [weak self, weak ac] _ in
             guard let searchText = ac?.textFields?[0].text?.lowercased() else { return }
-            for petition in self.filteredPetitions {
+            for petition in self!.filteredPetitions {
                 if !petition.title.lowercased().contains(searchText) && !petition.body.lowercased().contains(searchText) {
                     let petitionToRemove = petition
-                    if let petitionToRemoveIndex = self.filteredPetitions.firstIndex(of: petitionToRemove) {
-                        self.filteredPetitions.remove(at: petitionToRemoveIndex)
+                    if let petitionToRemoveIndex = self?.filteredPetitions.firstIndex(of: petitionToRemove) {
+                        self?.filteredPetitions.remove(at: petitionToRemoveIndex)
                     }
                 }
             }
-            print(self.filteredPetitions)
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
         }
         ac.addAction(searchPetitions)
         self.present(ac, animated: true)
