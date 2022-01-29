@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var answersLabel: UILabel!
     var currentAnswer: UITextField!
     var scoreLabel: UILabel!
+    var levelLabel: UILabel!
     var letterButtons = [UIButton]()
     
     var activatedButtons = [UIButton]()
@@ -22,7 +23,12 @@ class ViewController: UIViewController {
             scoreLabel.text = "Score: \(score)"
         }
     }
-    var level = 1
+    var solvedScore = 0
+    var level = 1 {
+        didSet {
+            levelLabel.text = "Level: \(level)"
+        }
+    }
     
     override func loadView() {
         view = UIView()
@@ -33,6 +39,12 @@ class ViewController: UIViewController {
         scoreLabel.textAlignment = .right
         scoreLabel.text = "Score: \(score)"
         view.addSubview(scoreLabel)
+        
+        levelLabel = UILabel()
+        levelLabel.translatesAutoresizingMaskIntoConstraints = false
+        levelLabel.textAlignment = .right
+        levelLabel.text = "Level: \(level)"
+        view.addSubview(levelLabel)
         
         cluesLabel = UILabel()
         cluesLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -74,11 +86,16 @@ class ViewController: UIViewController {
         
         let buttonsView = UIView()
         buttonsView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsView.layer.borderWidth = 1
+        buttonsView.layer.borderColor = UIColor.gray.cgColor
         view.addSubview(buttonsView)
         
         NSLayoutConstraint.activate ([
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            
+            levelLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            levelLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             
             cluesLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor),
             cluesLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 100),
@@ -156,12 +173,18 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
-            
-            if score % 7 == 0 {
-                let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
-                present(ac, animated: true)
-            }
+            solvedScore += 1
+        } else {
+            clearTapped(sender)
+            score -= 1
+            let ac = UIAlertController(title: "Error!", message: "There is no such answer!" , preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(ac, animated: true)
+        }
+        if solvedScore % 7 == 0 {
+            let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+            present(ac, animated: true)
         }
     }
     
