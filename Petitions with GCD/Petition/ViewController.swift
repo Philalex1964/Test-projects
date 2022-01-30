@@ -76,18 +76,20 @@ class ViewController: UITableViewController {
     @objc func filter() {
         let ac = UIAlertController(title: "Filter", message: nil, preferredStyle: .alert)
         ac.addTextField()
-        
+
         let searchPetitions = UIAlertAction(title: "Search", style: .default) { [weak self, weak ac] _ in
             guard let searchText = ac?.textFields?[0].text?.lowercased() else { return }
-            for petition in self!.filteredPetitions {
-                if !petition.title.lowercased().contains(searchText) && !petition.body.lowercased().contains(searchText) {
-                    let petitionToRemove = petition
-                    if let petitionToRemoveIndex = self?.filteredPetitions.firstIndex(of: petitionToRemove) {
-                        self?.filteredPetitions.remove(at: petitionToRemoveIndex)
+            DispatchQueue.global().async {
+                for petition in self!.filteredPetitions {
+                    if !petition.title.lowercased().contains(searchText) && !petition.body.lowercased().contains(searchText) {
+                        let petitionToRemove = petition
+                        if let petitionToRemoveIndex = self?.filteredPetitions.firstIndex(of: petitionToRemove) {
+                            self?.filteredPetitions.remove(at: petitionToRemoveIndex)
+                        }
                     }
                 }
+                self?.tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
             }
-            self?.tableView.reloadData()
         }
         ac.addAction(searchPetitions)
         self.present(ac, animated: true)
