@@ -26,6 +26,8 @@ class ViewController: UITableViewController {
         performSelector(inBackground: #selector(fetchJSON), with: nil)
     }
     
+    // MARK: - Objc methods
+    
     @objc func fetchJSON() {
         let urlString: String
         
@@ -64,8 +66,6 @@ class ViewController: UITableViewController {
                 performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
             }
     }
-    
-    // MARK: - Objc methods
     
     @objc func showCredits() {
         let ac = UIAlertController(title: "Credits", message: "The data comes from the We The People API of the Whitehouse", preferredStyle: .alert)
