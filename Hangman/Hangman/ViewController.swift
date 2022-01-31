@@ -14,15 +14,31 @@ class ViewController: UIViewController {
     @IBOutlet var submitButton: UIButton!
     
     var wordToFind = ""
+    var hiddenWord = "" //
     var allWords = [String]()
     var usedLetters = [String]()
+    var errorCount = 12 {
+        didSet {
+            title = "\(errorCount) errors to Hangman"
+        }
+    }
     
+    
+    
+    var hiddenWordArray = ["_","_","_","_","_","_","_","_"] {
+        didSet {
+            hiddenWord = hiddenWordArray.joined(separator: " ")
+            print(hiddenWordArray)
+            wordLabel.text = hiddenWord
+            print(hiddenWord)
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "HANGMAN"
+        title = "\(errorCount) errors to Hangman"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Game", style: .plain, target: self, action: #selector(startGame))
         
@@ -30,18 +46,19 @@ class ViewController: UIViewController {
         
         performSelector(inBackground: #selector(loadAllWords), with: nil)
         
+        hiddenWord = hiddenWordArray.joined(separator: " ")
+        
     }
     
     @objc func startGame() {
         wordToFind = allWords.randomElement() ?? "silkworm"
         print(wordToFind)
-        usedLetters.removeAll(keepingCapacity: true)
-        wordLabel.text = "_ _ _ _ _ _ _ _"
+        restartGame()
     }
     
     @objc func restartGame() {
         usedLetters.removeAll(keepingCapacity: true)
-        wordLabel.text = "_ _ _ _ _ _ _ _"
+        wordLabel.text = hiddenWord
     }
     
     @objc func loadAllWords() {
@@ -52,18 +69,43 @@ class ViewController: UIViewController {
         } else {
             allWords = ["silkworm"]
         }
-        print(allWords)
         
         wordToFind = allWords.randomElement()!
         print(wordToFind)
         
-        performSelector(onMainThread: #selector(startGame), with: nil, waitUntilDone: false)
+        performSelector(onMainThread: #selector(restartGame), with: nil, waitUntilDone: false)
     }
     
-    @objc func submitAnswer()
-    {
-        print("SubmitTapped")
+    @objc func submitAnswer() {
+        for letter in wordToFind {
+            let strLetter = String(letter)
+            usedLetters.append(strLetter)
+            
+            print(usedLetters)
+
+        }
+        guard let input = letterTextField.text?.lowercased() else { return }
+        
+        print(input)
+        
+        for _ in 0..<8 {
+            if usedLetters.contains(input)  {
+                usedLetters.removeSubrange(8...)
+              let indexToRemove = usedLetters.firstIndex(of: input)!
+                hiddenWordArray.remove(at: indexToRemove)
+                hiddenWordArray.insert(input.uppercased(), at: indexToRemove)
+                usedLetters.remove(at: indexToRemove)
+                usedLetters.insert("*", at: indexToRemove)
+            }
+        }
+        letterTextField.text = ""
     }
+            
+    
+        
+        
+        
+    
 
 }
 
