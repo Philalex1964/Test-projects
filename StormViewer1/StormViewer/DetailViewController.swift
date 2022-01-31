@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
         title = "Picture \(pictures.firstIndex(where: {$0 == selectedImage})! + 1) of \(pictures.count)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.largeTitleDisplayMode = .never
+        
+        imageView.contentMode = .scaleAspectFit
 
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
