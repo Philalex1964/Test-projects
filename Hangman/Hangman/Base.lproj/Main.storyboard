@@ -23,6 +23,7 @@
                             </textField>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HQN-09-fZU">
                                 <rect key="frame" x="96" y="808" width="222" height="4"/>
+                                <color key="trackTintColor" red="0.64313725489999995" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYL-tY-eer">
                                 <rect key="frame" x="172" y="418" width="70" height="44"/>
@@ -42,6 +43,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Life left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xat-j0-c60">
+                                <rect key="frame" x="174.5" y="764" width="65" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBrownColor"/>
@@ -56,6 +63,8 @@
                             <constraint firstItem="fgu-U0-j6a" firstAttribute="height" secondItem="n75-gC-NCg" secondAttribute="height" multiplier="0.944444" id="Xeo-QM-FBV"/>
                             <constraint firstItem="n75-gC-NCg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="dsa-jj-Sa0"/>
                             <constraint firstItem="HQN-09-fZU" firstAttribute="width" secondItem="fgu-U0-j6a" secondAttribute="width" id="nMU-af-HTN"/>
+                            <constraint firstItem="Xat-j0-c60" firstAttribute="centerX" secondItem="n75-gC-NCg" secondAttribute="centerX" id="q5l-gF-GOu"/>
+                            <constraint firstItem="HQN-09-fZU" firstAttribute="top" secondItem="Xat-j0-c60" secondAttribute="bottom" constant="20" id="wEF-gL-jY8"/>
                             <constraint firstItem="HQN-09-fZU" firstAttribute="centerX" secondItem="fgu-U0-j6a" secondAttribute="centerX" id="zUk-OT-Xw0"/>
                         </constraints>
                     </view>
