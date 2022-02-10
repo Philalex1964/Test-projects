@@ -28,6 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var balls = [String]()
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: 512, y: 384)
@@ -75,12 +77,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 box.zRotation = CGFloat.random(in: 0...3)
                 guard location.y < 650 else { return }
                 box.position = location
+                box.name = "box"
                 
                 box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
                 box.physicsBody?.isDynamic = false
                 addChild(box)
             } else {
-                let ball = SKSpriteNode(imageNamed: "ballRed")
+                let ball = SKSpriteNode(imageNamed: ballRandom())
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
                 ball.physicsBody?.restitution = 0.4
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
@@ -141,6 +144,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func destroy(ball: SKNode) {
+        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
+            fireParticles.position = ball.position
+            addChild(fireParticles)
+        }
+        
         ball.removeFromParent()
     }
     
@@ -153,5 +161,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else if contact.bodyB.node?.name == "ball" {
             collision(between: nodeB, object: nodeA)
         }
+    }
+    
+    func ballRandom() -> String {
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        for item in items {
+            if item.hasPrefix("ball") {
+                balls.append(item)
+            }
+        }
+        
+        return balls.randomElement() ?? "ballRed"
     }
 }

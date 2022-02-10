@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5E180D27B50C9C000ED6BA /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E180C27B50C9C000ED6BA /* FireParticles.sks */; };
+		2C5E180F27B51176000ED6BA /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E180E27B51176000ED6BA /* MyParticle.sks */; };
+		2C5E181827B51FB6000ED6BA /* ballRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181127B51FB6000ED6BA /* ballRed@2x.png */; };
+		2C5E181927B51FB6000ED6BA /* ballYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181227B51FB6000ED6BA /* ballYellow@2x.png */; };
+		2C5E181A27B51FB6000ED6BA /* ballBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181327B51FB6000ED6BA /* ballBlue@2x.png */; };
+		2C5E181B27B51FB6000ED6BA /* ballGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181427B51FB6000ED6BA /* ballGrey@2x.png */; };
+		2C5E181C27B51FB6000ED6BA /* ballPurple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181527B51FB6000ED6BA /* ballPurple@2x.png */; };
+		2C5E181D27B51FB6000ED6BA /* ballGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181627B51FB6000ED6BA /* ballGreen@2x.png */; };
+		2C5E181E27B51FB6000ED6BA /* ballCyan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5E181727B51FB6000ED6BA /* ballCyan@2x.png */; };
 		2C7FCE0627B2BCEA002B974A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FCE0527B2BCEA002B974A /* AppDelegate.swift */; };
 		2C7FCE0827B2BCEA002B974A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2C7FCE0727B2BCEA002B974A /* GameScene.sks */; };
 		2C7FCE0C27B2BCEA002B974A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FCE0B27B2BCEA002B974A /* GameScene.swift */; };
@@ -17,6 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C5E180C27B50C9C000ED6BA /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
+		2C5E180E27B51176000ED6BA /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		2C5E181127B51FB6000ED6BA /* ballRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballRed@2x.png"; sourceTree = "<group>"; };
+		2C5E181227B51FB6000ED6BA /* ballYellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballYellow@2x.png"; sourceTree = "<group>"; };
+		2C5E181327B51FB6000ED6BA /* ballBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballBlue@2x.png"; sourceTree = "<group>"; };
+		2C5E181427B51FB6000ED6BA /* ballGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballGrey@2x.png"; sourceTree = "<group>"; };
+		2C5E181527B51FB6000ED6BA /* ballPurple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballPurple@2x.png"; sourceTree = "<group>"; };
+		2C5E181627B51FB6000ED6BA /* ballGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballGreen@2x.png"; sourceTree = "<group>"; };
+		2C5E181727B51FB6000ED6BA /* ballCyan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballCyan@2x.png"; sourceTree = "<group>"; };
 		2C7FCE0227B2BCEA002B974A /* Pachinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pachinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7FCE0527B2BCEA002B974A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C7FCE0727B2BCEA002B974A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -38,6 +56,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C5E181027B51F61000ED6BA /* Balls */ = {
+			isa = PBXGroup;
+			children = (
+				2C5E181327B51FB6000ED6BA /* ballBlue@2x.png */,
+				2C5E181727B51FB6000ED6BA /* ballCyan@2x.png */,
+				2C5E181627B51FB6000ED6BA /* ballGreen@2x.png */,
+				2C5E181427B51FB6000ED6BA /* ballGrey@2x.png */,
+				2C5E181527B51FB6000ED6BA /* ballPurple@2x.png */,
+				2C5E181127B51FB6000ED6BA /* ballRed@2x.png */,
+				2C5E181227B51FB6000ED6BA /* ballYellow@2x.png */,
+			);
+			path = Balls;
+			sourceTree = "<group>";
+		};
 		2C7FCDF927B2BCEA002B974A = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +96,9 @@
 				2C7FCE0F27B2BCEA002B974A /* Main.storyboard */,
 				2C7FCE1227B2BCEA002B974A /* Assets.xcassets */,
 				2C7FCE1427B2BCEA002B974A /* LaunchScreen.storyboard */,
+				2C5E180C27B50C9C000ED6BA /* FireParticles.sks */,
+				2C5E180E27B51176000ED6BA /* MyParticle.sks */,
+				2C5E181027B51F61000ED6BA /* Balls */,
 			);
 			path = Pachinko;
 			sourceTree = "<group>";
@@ -126,10 +161,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5E181B27B51FB6000ED6BA /* ballGrey@2x.png in Resources */,
+				2C5E181E27B51FB6000ED6BA /* ballCyan@2x.png in Resources */,
 				2C7FCE1127B2BCEA002B974A /* Main.storyboard in Resources */,
+				2C5E180F27B51176000ED6BA /* MyParticle.sks in Resources */,
 				2C7FCE0827B2BCEA002B974A /* GameScene.sks in Resources */,
+				2C5E181C27B51FB6000ED6BA /* ballPurple@2x.png in Resources */,
+				2C5E181827B51FB6000ED6BA /* ballRed@2x.png in Resources */,
+				2C5E180D27B50C9C000ED6BA /* FireParticles.sks in Resources */,
+				2C5E181927B51FB6000ED6BA /* ballYellow@2x.png in Resources */,
 				2C7FCE1327B2BCEA002B974A /* Assets.xcassets in Resources */,
+				2C5E181D27B51FB6000ED6BA /* ballGreen@2x.png in Resources */,
 				2C7FCE1627B2BCEA002B974A /* LaunchScreen.storyboard in Resources */,
+				2C5E181A27B51FB6000ED6BA /* ballBlue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
