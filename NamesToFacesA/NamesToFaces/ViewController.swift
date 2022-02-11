@@ -46,6 +46,13 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
+    
+    func save() {
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        }
+    }
 
     // Collection view
     
@@ -117,12 +124,4 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         picker.delegate = self
         present(picker, animated: true)
     }
-    
-    func save() {
-        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: "people")
-        }
-    }
-    
 }
