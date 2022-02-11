@@ -11,12 +11,12 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     var selectedImage: String?
-    var pictures = [String]()
+    var pictures = [Picture]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Picture \(pictures.firstIndex(where: {$0 == selectedImage})! + 1) of \(pictures.count)"
+//        title = "Picture \(pictures.firstIndex(where: {$0 == selectedImage})! + 1) of \(pictures.count)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.largeTitleDisplayMode = .never
         
