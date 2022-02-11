@@ -15,6 +15,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
         
+        let defaults = UserDefaults.standard
+        
+        if let savedPeople  = defaults.object(forKey: "people") as? Data {
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("Failed to load picture")
+            }
+        }
         
     }
     
@@ -30,14 +41,27 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
+        save()
+
         collectionView.reloadData()
-        
         dismiss(animated: true)
     }
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        
+        if let savedData = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            
+            defaults.set(savedData, forKey: "people")
+        } else {
+            print("Failed to save picture")
+        }
     }
 
     // Collection view
@@ -78,7 +102,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             ac.addAction(UIAlertAction(title: "Ok", style: .default) { [weak self, weak ac] action in
                 guard let newName = ac?.textFields?[0].text else { return }
                 person.name = newName
-            
+                self?.save()
+
                 self?.collectionView.reloadData()
             })
             
@@ -89,6 +114,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         ac1.addAction(UIAlertAction(title: "Delete picture", style: .default) { [weak self] _ in
             guard let indexToRemove = self?.people.firstIndex(of: person) else { return }
             self?.people.remove(at: indexToRemove)
+            self?.save()
             
             self?.collectionView.reloadData()
         })
