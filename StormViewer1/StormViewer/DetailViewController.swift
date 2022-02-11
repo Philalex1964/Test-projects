@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        title = "Picture \(pictures.firstIndex(where: {$0 == selectedImage})! + 1) of \(pictures.count)"
+        title = "Picture \(pictures.firstIndex(where: {$0.pictureName == selectedImage})! + 1) of \(pictures.count)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.largeTitleDisplayMode = .never
         

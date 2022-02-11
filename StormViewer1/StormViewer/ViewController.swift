@@ -90,7 +90,9 @@ class ViewController: UITableViewController {
         for item in items {
             if item.hasPrefix("nssl") {
                 let picture = Picture(pictureName: item, viewsCount: 0)
-                pictures.append(picture)
+                if !pictures.contains(picture) {
+                    pictures.append(picture)
+                }
             }
         }
 
