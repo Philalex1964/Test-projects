@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     @IBOutlet var button1: UIButton!
@@ -14,8 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet var button3: UIButton!
     
     var countries = [String]()
-    var score = 0
+    var score = 0 {
+        didSet {
+            title = countries[correctAnswer].uppercased() + "?" + " Score: \(score)"
+        }
+    }
     var correctAnswer = 0
+    var highScore = 0 {
+        didSet {
+            newHighScore()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +42,9 @@ class ViewController: UIViewController {
         button3.layer.borderColor = UIColor.darkGray.cgColor
         
         askQuestion()
+        
+        let defaults = UserDefaults.standard
+        highScore = defaults.integer(forKey: "highScore")
     }
 
     func askQuestion(action: UIAlertAction! = nil) {
@@ -51,6 +65,11 @@ class ViewController: UIViewController {
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
+            if score > highScore {
+                highScore = score
+                save()
+                return
+            }
         } else {
             title = "Wrong"
             score -= 1
@@ -60,6 +79,19 @@ class ViewController: UIViewController {
         
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         
+        present(ac, animated: true)
+    }
+    
+    func save() {
+        let defaults = UserDefaults.standard
+        defaults.set(highScore, forKey: "highScore")
+        print("Highscore saved!")
+    }
+    
+    func newHighScore() {
+        
+        let ac = UIAlertController(title: "High score", message: score == 0 ? "Current high score = \(highScore)." : "New high score = \(highScore)!", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
         present(ac, animated: true)
     }
 }
