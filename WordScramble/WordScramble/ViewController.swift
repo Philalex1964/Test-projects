@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
+    var userGuessedWords = [String]()
+    var userUsedWords = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +23,24 @@ class ViewController: UITableViewController {
         if let startWordURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let startWords = try? String(contentsOf: startWordURL) {
                 allWords = startWords.components(separatedBy: "\n")
+                allWords = allWords.filter { !userGuessedWords.contains($0) }
             }
         } else {
             allWords = ["silkworm"]
         }
+        
+        let defaults = UserDefaults.standard
+        userGuessedWords = defaults.object(forKey: "userGuessedWords") as? [String] ?? [String]()
+        userUsedWords = defaults.object(forKey: "userUsedWords") as? [String] ?? [String]()
         
         startGame()
     }
     
     func startGame() {
         title = allWords.randomElement()
+        userGuessedWords.append(title!)
         usedWords.removeAll(keepingCapacity: true)
+        save()
         tableView.reloadData()
     }
 
@@ -75,7 +84,8 @@ class ViewController: UITableViewController {
             if isOriginal(word: answer) {
                 if isReal(word: answer) {
                     usedWords.insert(answer, at: 0)
-                    
+                    userUsedWords.append(answer)
+                    save()
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
                     
@@ -122,5 +132,12 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .default))
         present(ac, animated: true)
+    }
+    
+    func save() {
+        let defaults = UserDefaults.standard
+        
+        defaults.set(userUsedWords, forKey: "userUsedWords")
+        defaults.set(userGuessedWords, forKey: "userGuessedWords")
     }
 }
