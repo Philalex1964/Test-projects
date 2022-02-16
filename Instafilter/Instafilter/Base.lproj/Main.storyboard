@@ -46,13 +46,13 @@
                                     <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ogS-o5-iS9"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-Zg-xLw">
-                                <rect key="frame" x="20" y="798" width="120" height="44"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-Zg-xLw">
+                                <rect key="frame" x="20" y="798" width="306" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="YlC-yy-Zib"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change Filter"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change current filter "/>
                                 <connections>
                                     <action selector="changeFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qy8-8U-iIZ"/>
                                 </connections>
@@ -80,7 +80,7 @@
                             <constraint firstItem="KbC-V1-Yfx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F9o-ki-ePd"/>
                             <constraint firstItem="Ht2-Fj-q1B" firstAttribute="leading" secondItem="gUB-Zg-xLw" secondAttribute="leading" id="IfE-3w-lBG"/>
                             <constraint firstItem="Bei-wy-rc3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="OLZ-j9-uaS"/>
-                            <constraint firstItem="zHl-Vo-esk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gUB-Zg-xLw" secondAttribute="trailing" constant="8" symbolic="YES" id="QOF-cJ-I0u"/>
+                            <constraint firstItem="zHl-Vo-esk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="gUB-Zg-xLw" secondAttribute="trailing" constant="8" symbolic="YES" id="QOF-cJ-I0u"/>
                             <constraint firstItem="gUB-Zg-xLw" firstAttribute="top" secondItem="Ht2-Fj-q1B" secondAttribute="bottom" constant="11" id="Rwd-MJ-pZf"/>
                             <constraint firstItem="gUB-Zg-xLw" firstAttribute="top" secondItem="zHl-Vo-esk" secondAttribute="top" id="X6K-Zt-Bp4"/>
                             <constraint firstItem="KbC-V1-Yfx" firstAttribute="leading" secondItem="Ht2-Fj-q1B" secondAttribute="leading" id="XsA-bV-mCa"/>
@@ -93,6 +93,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Pui-uC-S5f"/>
                     <connections>
+                        <outlet property="filterButton" destination="gUB-Zg-xLw" id="h9C-Ul-9Ew"/>
                         <outlet property="imageView" destination="7pj-qE-h8Q" id="biS-Fz-dfl"/>
                         <outlet property="intensity" destination="Bei-wy-rc3" id="5UV-8m-l6v"/>
                     </connections>
