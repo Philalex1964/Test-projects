@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let image = info[.editedImage] as? UIImage else { return }
         
         dismiss(animated: true)
+        
         currentImage = image
         
         let beginImage = CIImage(image: currentImage)
@@ -41,27 +42,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    @objc func importPicture() {
-        let picker = UIImagePickerController()
+    func applyProcessing() {
+        let inputKeys = currentFilter.inputKeys
+
+        if inputKeys.contains(kCIInputIntensityKey) {
+            currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
+        }
         
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
-    }
-    
-    @objc func setFilter(action: UIAlertAction) {
-        guard currentImage != nil else { return }
-        guard let actionTitle = action.title else { return }
+        if inputKeys.contains(kCIInputRadiusKey) {
+            currentFilter.setValue(intensity.value * 400, forKey: kCIInputRadiusKey)
+        }
         
+        if inputKeys.contains(kCIInputScaleKey) {
+            currentFilter.setValue(intensity.value * 10, forKey: kCIInputScaleKey)
+        }
         
-        currentFilter = CIFilter(name: actionTitle)
+        if inputKeys.contains(kCIInputCenterKey) {
+            currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey)
+        }
+
+        guard let outputImage = currentFilter.outputImage else { return }
         
-        let beginImage = CIImage(image: currentImage)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        applyProcessing()
+        if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
+            let processedImage = UIImage(cgImage: cgImage)
+            imageView.image = processedImage
+        }
     }
 
+    // MARK: - Actions
+    
     @IBAction func changeFilter(_ sender: UIButton) {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
@@ -91,31 +100,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         applyProcessing()
     }
     
-    func applyProcessing() {
-        let inputKeys = currentFilter.inputKeys
-
-        if inputKeys.contains(kCIInputIntensityKey) {
-            currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
-        }
+    // MARK:- @objc methods
+    
+    @objc func importPicture() {
+        let picker = UIImagePickerController()
         
-        if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(intensity.value * 400, forKey: kCIInputRadiusKey)
-        }
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    @objc func setFilter(action: UIAlertAction) {
+        guard currentImage != nil else { return }
+        guard let actionTitle = action.title else { return }
         
-        if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(intensity.value * 10, forKey: kCIInputScaleKey)
-        }
+        currentFilter = CIFilter(name: actionTitle)
         
-        if inputKeys.contains(kCIInputCenterKey) {
-            currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey)
-        }
-
-        guard let outputImage = currentFilter.outputImage else { return }
+        let beginImage = CIImage(image: currentImage)
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         
-        if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-            let processedImage = UIImage(cgImage: cgImage)
-            imageView.image = processedImage
-        }
+        applyProcessing()
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
