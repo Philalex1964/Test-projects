@@ -14,6 +14,7 @@
 		2C7D372827BD4FBB003F2DEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D372627BD4FBB003F2DEF /* Main.storyboard */; };
 		2C7D372A27BD4FBB003F2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D372927BD4FBB003F2DEF /* Assets.xcassets */; };
 		2C7D372D27BD4FBB003F2DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D372B27BD4FBB003F2DEF /* LaunchScreen.storyboard */; };
+		2C7D375927BFBFCD003F2DEF /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D375827BFBFCD003F2DEF /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		2C7D372C27BD4FBB003F2DEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C7D373327BD51D0003F2DEF /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		2C7D373427BD51D0003F2DEF /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
+		2C7D375827BFBFCD003F2DEF /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				2C7D371C27BD4FBB003F2DEF /* AppDelegate.swift */,
 				2C7D371E27BD4FBB003F2DEF /* GameScene.sks */,
 				2C7D372227BD4FBB003F2DEF /* GameScene.swift */,
+				2C7D375827BFBFCD003F2DEF /* WhackSlot.swift */,
 				2C7D372427BD4FBB003F2DEF /* GameViewController.swift */,
 				2C7D372627BD4FBB003F2DEF /* Main.storyboard */,
 				2C7D372927BD4FBB003F2DEF /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				2C7D372327BD4FBB003F2DEF /* GameScene.swift in Sources */,
 				2C7D372527BD4FBB003F2DEF /* GameViewController.swift in Sources */,
+				2C7D375927BFBFCD003F2DEF /* WhackSlot.swift in Sources */,
 				2C7D371D27BD4FBB003F2DEF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
