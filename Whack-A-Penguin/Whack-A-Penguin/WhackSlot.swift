@@ -13,12 +13,11 @@ class WhackSlot: SKNode {
     
     var isVisible = false
     var isHit = false
-    let sprite = SKSpriteNode(imageNamed: "whackHole")
     
     func configure(at position: CGPoint) {
         self.position = position
         
-//        let sprite = SKSpriteNode(imageNamed: "whackHole")
+        let sprite = SKSpriteNode(imageNamed: "whackHole")
         addChild(sprite)
         
         let cropNode = SKCropNode()
