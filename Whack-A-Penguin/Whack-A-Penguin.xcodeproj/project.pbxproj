@@ -18,6 +18,9 @@
 		2C7D375C27C1075B003F2DEF /* gameOver.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D375A27C1042E003F2DEF /* gameOver.m4a */; };
 		2C7D375D27C1075F003F2DEF /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D373427BD51D0003F2DEF /* whackBad.caf */; };
 		2C7D375E27C10762003F2DEF /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D373327BD51D0003F2DEF /* whack.caf */; };
+		2C7D376027C12675003F2DEF /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D375F27C12675003F2DEF /* Smoke.sks */; };
+		2C7D376727C1292C003F2DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D376527C1292C003F2DEF /* Assets.xcassets */; };
+		2C7D376B27C12C1C003F2DEF /* Mud.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2C7D376A27C12C1C003F2DEF /* Mud.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		2C7D373427BD51D0003F2DEF /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		2C7D375827BFBFCD003F2DEF /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 		2C7D375A27C1042E003F2DEF /* gameOver.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.m4a; sourceTree = "<group>"; };
+		2C7D375F27C12675003F2DEF /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
+		2C7D376527C1292C003F2DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Particles/Assets.xcassets; sourceTree = "<group>"; };
+		2C7D376A27C12C1C003F2DEF /* Mud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Mud.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,8 @@
 				2C7D372627BD4FBB003F2DEF /* Main.storyboard */,
 				2C7D372927BD4FBB003F2DEF /* Assets.xcassets */,
 				2C7D372B27BD4FBB003F2DEF /* LaunchScreen.storyboard */,
+				2C7D376527C1292C003F2DEF /* Assets.xcassets */,
+				2C7D376327C128CE003F2DEF /* Particles */,
 				2C7D375B27C1071B003F2DEF /* Sounds */,
 			);
 			path = "Whack-A-Penguin";
@@ -86,6 +94,15 @@
 				2C7D375A27C1042E003F2DEF /* gameOver.m4a */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		2C7D376327C128CE003F2DEF /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				2C7D376A27C12C1C003F2DEF /* Mud.sks */,
+				2C7D375F27C12675003F2DEF /* Smoke.sks */,
+			);
+			path = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,10 +166,13 @@
 				2C7D372827BD4FBB003F2DEF /* Main.storyboard in Resources */,
 				2C7D371F27BD4FBB003F2DEF /* GameScene.sks in Resources */,
 				2C7D375E27C10762003F2DEF /* whack.caf in Resources */,
+				2C7D376727C1292C003F2DEF /* Assets.xcassets in Resources */,
 				2C7D375C27C1075B003F2DEF /* gameOver.m4a in Resources */,
 				2C7D372A27BD4FBB003F2DEF /* Assets.xcassets in Resources */,
+				2C7D376B27C12C1C003F2DEF /* Mud.sks in Resources */,
 				2C7D372D27BD4FBB003F2DEF /* LaunchScreen.storyboard in Resources */,
 				2C7D375D27C1075F003F2DEF /* whackBad.caf in Resources */,
+				2C7D376027C12675003F2DEF /* Smoke.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

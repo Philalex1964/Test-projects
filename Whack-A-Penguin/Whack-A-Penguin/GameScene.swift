@@ -70,6 +70,15 @@ class GameScene: SKScene {
                 
                 run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
             }
+            
+            if let smokeParticles = SKEmitterNode(fileNamed: "Smoke") {
+                smokeParticles.position = whackSlot.position
+                addChild(smokeParticles)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    smokeParticles.removeFromParent()
+                }
+            }
         }
         
     }

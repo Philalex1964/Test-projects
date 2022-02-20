@@ -13,11 +13,12 @@ class WhackSlot: SKNode {
     
     var isVisible = false
     var isHit = false
+    let sprite = SKSpriteNode(imageNamed: "whackHole")
     
     func configure(at position: CGPoint) {
         self.position = position
         
-        let sprite = SKSpriteNode(imageNamed: "whackHole")
+//        let sprite = SKSpriteNode(imageNamed: "whackHole")
         addChild(sprite)
         
         let cropNode = SKCropNode()
@@ -52,6 +53,8 @@ class WhackSlot: SKNode {
             charNode.name = "charEnemy"
         }
         
+        mudEmit()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * 3.5)) { [weak self] in
             self?.hide()
         }
@@ -62,6 +65,8 @@ class WhackSlot: SKNode {
         
         charNode.run(SKAction.moveBy(x: 0, y: -80, duration: 0.05))
         isVisible = false
+        
+        mudEmit()
     }
     
     func hit() {
@@ -74,6 +79,22 @@ class WhackSlot: SKNode {
         let sequence = SKAction.sequence([delay, hide, notVisible])
         
         charNode.run(sequence)
-        
+    }
+    
+    func mudEmit () {
+        if let mudParticle = SKEmitterNode(fileNamed: "Mud") {
+            switch isVisible {
+            case true:
+                mudParticle.position = CGPoint(x: 0, y: 0)
+            case false:
+                mudParticle.position = CGPoint(x: 0, y: charNode.position.y + 80)
+            }
+            
+            addChild(mudParticle)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                mudParticle.removeFromParent()
+            }
+        }
     }
 }
