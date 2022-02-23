@@ -41,6 +41,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         filterButton.titleLabel?.text = currentFilter?.name ?? "Change filter"
         
+        imageView.alpha = 0
+        UIImageView.animate(withDuration: 2, animations: {
+            self.imageView.alpha = 1
+        })
         currentImage = image
         
         let beginImage = CIImage(image: currentImage)
