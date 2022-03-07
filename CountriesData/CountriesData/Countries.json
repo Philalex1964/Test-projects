@@ -1,0 +1,61 @@
+{
+    "countries": [
+        {
+            "name": "us",
+            "capital" : "washington",
+            "population": 327793744,
+            "area": 9834000,
+            "currency": "USD"
+        },
+        {
+            "name": "spain",
+            "capital" : "madrid",
+            "population": 47450795,
+            "area": 505990,
+            "currency": "EUR"
+        },
+        {
+            "name": "italy",
+            "capital" : "rome",
+            "population": 67413000,
+            "area": 643801,
+            "currency": "EUR"
+        },
+        {
+            "name": "france",
+            "capital" : "paris",
+            "population": 10768477,
+            "area": 131957,
+            "currency": "EUR"
+        },
+        {
+            "name": "germany",
+            "capital" : "berlin",
+            "population": 83190556,
+            "area": 357022,
+            "currency": "EUR"
+        },
+        {
+            "name": "ireland",
+            "capital" : "dublin",
+            "population": 5011500,
+            "area": 70273,
+            "currency": "EUR"
+        },
+        {
+            "name": "russia",
+            "capital" : "moscow",
+            "population": 146793744,
+            "area": 17125191,
+            "currency": "RUB"
+        },
+        {
+            "name": "monaco",
+            "capital" : "monaco",
+            "population": 38300,
+            "area": 2,
+            "currency": "EUR"
+        }
+        
+    ]
+}
