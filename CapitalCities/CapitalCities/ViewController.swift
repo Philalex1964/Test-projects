@@ -16,12 +16,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(chooseMapType))
         
-        let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympics.", url: URL(fileURLWithPath: "https://en.wikipedia.org/wiki/London"))
-        let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.", url: URL(fileURLWithPath: "https://en.wikipedia.org/wiki/Oslo"))
-        let paris = Capital(title: "Paris", coordinate: CLLocationCoordinate2D(latitude: 48.8567, longitude: 2.3508), info: "Often called the City of Light.", url: URL(fileURLWithPath: "https://en.wikipedia.org/wiki/Paris"))
-        let rome = Capital(title: "Rome", coordinate: CLLocationCoordinate2D(latitude: 41.9, longitude: 12.5), info: "Has a whole country inside it.", url: URL(fileURLWithPath: "https://en.wikipedia.org/wiki/Rome"))
-        let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.", url: URL(fileURLWithPath: "https://en.wikipedia.org/wiki/Washington"))
-        let petrovaradin = Capital(title: "Petrovaradin", coordinate: CLLocationCoordinate2D(latitude: 45.2436563, longitude: 19.8837914), info: "I just like it.", url: URL(fileURLWithPath: "https://en.wikipedia.org/wiki/Petrovaradin"))
+        let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympics.", url: URL(string: "https://en.wikipedia.org/wiki/London")!)
+        let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.", url: URL(string: "https://en.wikipedia.org/wiki/Oslo")!)
+        let paris = Capital(title: "Paris", coordinate: CLLocationCoordinate2D(latitude: 48.8567, longitude: 2.3508), info: "Often called the City of Light.", url: URL(string: "https://en.wikipedia.org/wiki/Paris")!)
+        let rome = Capital(title: "Rome", coordinate: CLLocationCoordinate2D(latitude: 41.9, longitude: 12.5), info: "Has a whole country inside it.", url: URL(string: "https://en.wikipedia.org/wiki/Rome")!)
+        let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.", url: URL(string: "https://en.wikipedia.org/wiki/Washington")!)
+        let petrovaradin = Capital(title: "Petrovaradin", coordinate: CLLocationCoordinate2D(latitude: 45.2436563, longitude: 19.8837914), info: "I just like it.", url: URL(string: "https://en.wikipedia.org/wiki/Petrovaradin")!)
         
         mapView.addAnnotations([london, oslo, paris, rome, washington, petrovaradin])
     }
@@ -56,9 +56,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Open Wikipedia?", style: .default) { [weak self] _ in
-            let vc = self?.storyboard?.instantiateViewController(withIdentifier: "Wiki")
+            let vc = self?.storyboard?.instantiateViewController(withIdentifier: "Wiki") as? DetailViewController
+            vc?.url = capital.url
             
-            
+            self?.navigationController?.pushViewController(vc!, animated: true)
+
         })
         ac.addAction(UIAlertAction(title: "Ok", style: .default))
         present(ac, animated: true)
