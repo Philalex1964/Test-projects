@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="b0N-fg-JYE">
             <objects>
-                <viewController storyboardIdentifier="Wiki" id="BSQ-v1-hBh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Wiki" id="BSQ-v1-hBh" customClass="DetailViewController" customModule="CapitalCities" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ju-zP-cd8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,9 @@
                             <constraint firstItem="tWa-2Z-4L5" firstAttribute="trailing" secondItem="CQe-dR-wzm" secondAttribute="trailing" id="qst-ik-zuM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="CQe-dR-wzm" id="mFz-xc-qiH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bec-3I-WUG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
