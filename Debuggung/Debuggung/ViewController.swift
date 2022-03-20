@@ -12,12 +12,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("I'm inside the viewDidLoad() method!")
+        assert(1 == 1, "Maths failure1!")
+//        assert(1 == 2, "Maths failure2!")
         
-        print(1, 2, 3, 4, 5)
-        print(1, 2, 3, 4, 5, separator: "-")
-        print("Some message", terminator: "")
+        assert(myReallySlowMethod() == true, "The slow method returned false, which is a bad thing!")
 
+    }
+    
+    func myReallySlowMethod() -> Bool {
+        return false
     }
 
 
