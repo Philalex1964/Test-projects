@@ -39,6 +39,28 @@ class UnitTestsSwiftTests: XCTestCase {
         }
     }
     
+    func testUserFilterWorks() {
+        let playData = PlayData()
+        
+        playData.applyUserFilter("100")
+        XCTAssertEqual(playData.filteredWords.count, 495, "100 times repeated words should be 495")
+        
+        playData.applyUserFilter("1000")
+        XCTAssertEqual(playData.filteredWords.count, 55, "1000 times repeated words should be 55")
+        
+        playData.applyUserFilter("10000")
+        XCTAssertEqual(playData.filteredWords.count, 1, "10000 times repeated words should be 1")
+        
+        playData.applyUserFilter("test")
+        XCTAssertEqual(playData.filteredWords.count, 56, "Test does not appear 56 times")
+        
+        playData.applyUserFilter("swift")
+        XCTAssertEqual(playData.filteredWords.count, 7, "Swift does not appear 7 times")
+        
+        playData.applyUserFilter("objective-c")
+        XCTAssertEqual(playData.filteredWords.count, 0, "Objective should not appear")
+    }
+    
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
