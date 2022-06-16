@@ -40,10 +40,14 @@ class PlayData {
     }
     
     func applyUserFilter(_ input: String) {
-        if let userNumber = Int(input) {
-            applyFilter { wordCounts.count(for: $0) >= userNumber }
-        } else {
-            applyFilter { $0.range(of: input, options: .caseInsensitive) != nil}
-        }
+//        if input.isEmpty {
+//            filteredWords = allWords
+//        } else {
+            if let userNumber = Int(input) {
+                applyFilter { wordCounts.count(for: $0) >= userNumber }
+            } else {
+                applyFilter { $0.range(of: input, options: .caseInsensitive) != nil}
+            }
+//        }        
     }
 }
