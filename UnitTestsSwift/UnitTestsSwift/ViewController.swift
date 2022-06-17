@@ -15,6 +15,9 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+        
+//        updateNameSync()
+//        updateName()
     }
     
     // MARK: - Table view data source
@@ -49,4 +52,36 @@ class ViewController: UITableViewController {
         
         present(ac, animated: true)
     }
+    
+// Data Race
+//    private var name: String = ""
+//
+//    func updateName() {
+//        DispatchQueue.global().async {
+//            self.name.append("Alex Petrov")
+//        }
+//
+//        print(self.name)
+//    }
+//
+//    private let lockQueue = DispatchQueue(label: "name.lock.queue")
+//    private var name: String = "Antoine van der Lee"
+//
+//    func updateNameSync() {
+//        DispatchQueue.global().async {
+//            self.lockQueue.async {
+//                self.name.append("Antoine van der Lee")
+//            }
+//        }
+//
+//        // Executed on the Main Thread
+//        lockQueue.async {
+//            // Executed on the lock queue
+//            print(self.name)
+//        }
+//    }
+//
+//    // Prints:
+//    // Antoine van der Lee
+//    // Antoine van der Lee
 }
