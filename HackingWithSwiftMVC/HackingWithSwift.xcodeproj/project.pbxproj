@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1512FA28804AFF008E87AD /* Bundle+Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1512F928804AFF008E87AD /* Bundle+Decoding.swift */; };
 		519AE14D2194787D001F5CFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AE14C2194787D001F5CFF /* AppDelegate.swift */; };
 		519AE14F2194787D001F5CFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AE14E2194787D001F5CFF /* ViewController.swift */; };
 		519AE1522194787D001F5CFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 519AE1502194787D001F5CFF /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1512F928804AFF008E87AD /* Bundle+Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decoding.swift"; sourceTree = "<group>"; };
 		519AE1492194787D001F5CFF /* HackingWithSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackingWithSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		519AE14C2194787D001F5CFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		519AE14E2194787D001F5CFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				519AE14E2194787D001F5CFF /* ViewController.swift */,
 				519AE16C21947911001F5CFF /* DetailViewController.swift */,
 				519AE17221948C5A001F5CFF /* ReadViewController.swift */,
+				3A1512F928804AFF008E87AD /* Bundle+Decoding.swift */,
 				519AE16E219479E3001F5CFF /* Project.swift */,
 				519AE1502194787D001F5CFF /* Main.storyboard */,
 				519AE1532194787E001F5CFF /* Assets.xcassets */,
@@ -212,6 +215,7 @@
 			files = (
 				519AE16D21947911001F5CFF /* DetailViewController.swift in Sources */,
 				519AE14F2194787D001F5CFF /* ViewController.swift in Sources */,
+				3A1512FA28804AFF008E87AD /* Bundle+Decoding.swift in Sources */,
 				519AE14D2194787D001F5CFF /* AppDelegate.swift in Sources */,
 				519AE16F219479E3001F5CFF /* Project.swift in Sources */,
 				519AE17321948C5A001F5CFF /* ReadViewController.swift in Sources */,
