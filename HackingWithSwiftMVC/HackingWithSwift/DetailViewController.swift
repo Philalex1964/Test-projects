@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, Storyboarded {
     var project: Project!
     
     override func loadView() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, Storyboarded {
     let dataSource = ProjectDataSource()
     
     override func viewDidLoad() {

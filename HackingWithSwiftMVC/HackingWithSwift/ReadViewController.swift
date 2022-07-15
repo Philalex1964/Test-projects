@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ReadViewController: UIViewController {
+class ReadViewController: UIViewController, Storyboarded {
     var webView = WKWebView()
     var project: Project!
     var navigationDelegate = NavigationDelegate()
