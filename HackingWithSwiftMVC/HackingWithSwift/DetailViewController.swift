@@ -13,7 +13,10 @@ class DetailViewController: UIViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     
     override func loadView() {
-        view = DetailView(project: project, readAction: readProject)
+        //view = DetailView(project: project, readAction: readProject)
+        view = DetailView(project: project) { [weak self] in
+            self?.readProject()
+        }
     }
 
     override func viewDidLoad() {
