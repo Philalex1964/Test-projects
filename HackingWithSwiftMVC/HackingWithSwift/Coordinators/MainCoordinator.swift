@@ -18,8 +18,21 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let vc = ViewController.instantiate()
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func show(_ project: Project) {
+        let detailVC = DetailViewController.instantiate()
+        detailVC.project = project
+        detailVC.coordinator = self
+        navigationController.pushViewController(detailVC, animated: true)
+    }
     
+    func read(_ project: Project) {
+        let readVC = ReadViewController.instantiate()
+        readVC.project = project
+        
+        navigationController.pushViewController(readVC, animated: true)
+    }
 }

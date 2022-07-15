@@ -27,17 +27,4 @@ class ReadViewController: UIViewController, Storyboarded {
 
         webView.load("https://www.hackingwithswift.com/read/\(project.number)/overview")
     }
-
-//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-//        if let host = navigationAction.request.url?.host {
-//            if allowedSites.contains(where: host.contains) {
-//                decisionHandler(.allow)
-//                return
-//            } else {
-//                print("Disallowed invalid site: \(host).")
-//            }
-//        }
-//
-//        decisionHandler(.cancel)
-//    }
 }

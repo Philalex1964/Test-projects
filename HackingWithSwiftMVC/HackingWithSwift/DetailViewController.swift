@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController, Storyboarded {
     var project: Project!
+    weak var coordinator: MainCoordinator?
     
     override func loadView() {
         view = DetailView(project: project, readAction: readProject)
@@ -25,11 +26,6 @@ class DetailViewController: UIViewController, Storyboarded {
     }
 
     func readProject() {
-        guard let readVC = storyboard?.instantiateViewController(withIdentifier: "ReadViewController") as? ReadViewController else {
-            return
-        }
-
-        readVC.project = project
-        navigationController?.pushViewController(readVC, animated: true)
+        coordinator?.read(project)
     }
 }
